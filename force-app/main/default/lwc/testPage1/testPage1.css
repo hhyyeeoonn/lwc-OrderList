@@ -1,0 +1,31 @@
+.wrapper {
+    margin: 0 auto;
+    border: 1px solid black;
+    padding: 5px;
+    /*overflow: hidden;*/
+    text-align: center;
+}
+.menu .p_ul {
+    display: inline-flex;
+}
+.p_ul a {
+    display: flex;
+    border: 1px solid black;
+    padding-left: auto ;
+    padding-right: auto;
+}
+.c_menu {
+    display: flex;
+}
+
+
+
+/*
+flex아이템들은 가로 방향으로 배치되고, 자신이 가진 내용물의 width만큼만 차지함 height는 컨테이너의 높이만큼 늘어남
+float는 정렬은 되지만 height는 변경되지 않는 느낌?
+-https://studiomeal.com/archives/197
+
+li:not(.c_menu .c_ul li) {} : 괄호 안은 제외
+
+list-style-type: none; 
+*/

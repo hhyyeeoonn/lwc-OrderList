@@ -1,0 +1,15 @@
+h1 {
+    font-size: 30px;
+}
+
+.searchOp, .searchSt, .searchBtn {
+    display: inline-block;
+}
+
+.search-wrap {
+    display: flex;
+    justify-content: flex-end;
+}
+.search-wrap, .list-wrap {
+    width: 100%;
+}

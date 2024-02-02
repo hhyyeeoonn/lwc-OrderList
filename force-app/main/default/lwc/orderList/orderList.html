@@ -1,0 +1,70 @@
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
+<template>
+    <div class="wrapper">
+        <div>
+            <lightning-button variant="neutral" label="이동하기" onclick={navigateToCafePage}>이동하기</lightning-button>
+        </div>
+        <div>
+            <lightning-button variant="neutral" label="이동하기2" onclick={clickCafe}>이동하기2</lightning-button>
+            <a href={namedPageUrl}>이동하기2</a>
+           
+        </div>
+        <div>
+            <lightning-button variant="neutral" label="testPage" onclick={navigateToTestPage}>Test Page</lightning-button>
+        </div>
+        
+        
+        <h1 class="pageTitle">주문조회</h1>
+        
+        <div class="search-wrap">
+            <lightning-combobox variant="label-hidden" options={searchOption} value={userSelect.searchOption} onchange={searchOptionChange} class="searchOp"></lightning-combobox> <!--onchange={}-->
+            <lightning-input variant="label-hidden" type="text" value={userSelect.searchSt} onchange={searchStChange} onkeypress={searchKeyAction} class="searchSt"></lightning-input><!--onchange={}-->
+            <lightning-button variant="neutral" label="주문조회" onclick={searchBtnAction} class="searchBtn">주문조회</lightning-button><!--onclick={searchRequest}-->
+        </div>
+
+        <div class="list-wrap">
+            <p class="listTitle">{totalListNum}</p> <!-- label 값 변경 replace활용 -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>구분</th>
+                        <th>상태</th>
+                        <th>주문일</th>
+                        <th>주문번호</th>
+                        <th>자재명</th>
+                        <th>주문담당자</th>
+                        <th>주문상세</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={resultList.orderWrapList} for:item="item" for:index="index">
+                        <tr key={item.id} class="contentList">
+                            <td>{item.type}</td>
+                            <td>{item.status}</td>
+                            <td>{item.orderDate}</td>
+                            <td>{item.orderNum}</td>
+                            <td>{item.prodName}</td>
+                            <td>{item.orderOwner}</td>
+                            <td>
+                                
+                            </td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+
+        <template lwc:if={pagingDef.seeMore}>
+            <div class="paging">
+                <!-- sldsValidatorIgnoreNextLine -->
+                <button onclick={pagingSeeMore}>더보기 ({pagingDef.currentPageNum}/{pagingDef.allPageNum})</button>
+            </div>
+        </template>
+        <template lwc:else>
+            <button onclick={pagingDefBack}>접기</button>
+        </template>
+
+    </div>
+</template>
